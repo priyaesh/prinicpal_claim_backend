@@ -1,17 +1,26 @@
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
+const readline = require('readline');
 const { spawnSync } = require('child_process');
 const { PDFDocument } = require('pdf-lib');
 
-const defaultTemplatePath = path.join(
-  __dirname,
-  '..',
-  'sample',
-  'principal_bond_with_child_claim_form.pdf'
-);
 const defaultInputPath = path.join(__dirname, '..', 'sample', 'data.json');
 const defaultOutputDir = path.join(__dirname, '..', 'output');
+
+// Form configurations
+const formConfigs = {
+  shelterpoint: {
+    template: path.join(__dirname, '..', 'sample', 'claim_form_shelterpoint_bonding.pdf'),
+    mapping: path.join(__dirname, '..', 'field-maps', 'shelterpoint.json'),
+    name: 'shelterpoint'
+  },
+  principal: {
+    template: path.join(__dirname, '..', 'sample', 'principal_bond_with_child_claim_form.pdf'),
+    mapping: path.join(__dirname, '..', 'field-maps', 'principal.json'),
+    name: 'principal'
+  }
+};
 
 function ensureOutputDir(dir) {
   if (!fs.existsSync(dir)) {
@@ -39,7 +48,88 @@ function decryptTemplateToTemp(templateResolved) {
   return tempPath;
 }
 
-async function fillForm(templatePath, inputPath, outputPath) {
+/**
+ * Split SSN value (e.g., "123-45-6789") into parts
+ */
+function splitSSN(value) {
+  const cleaned = String(value).replace(/-/g, '');
+  if (cleaned.length === 9) {
+    return [cleaned.substring(0, 3), cleaned.substring(3, 5), cleaned.substring(5, 9)];
+  }
+  // Fallback: try to split by dashes
+  const parts = String(value).split('-');
+  if (parts.length === 3) {
+    return parts;
+  }
+  // If no dashes, split into 3-2-4 pattern
+  return [cleaned.substring(0, 3), cleaned.substring(3, 5), cleaned.substring(5, 9)];
+}
+
+/**
+ * Split phone number (e.g., "123-456-7890") into area code, first part, and last part
+ * Returns array of [areaCode, firstPart, lastPart] for 3-field phone inputs
+ * Or [areaCode, number] for 2-field phone inputs
+ */
+function splitPhone(value, fieldCount = 3) {
+  const cleaned = String(value).replace(/[-\s()]/g, '');
+  
+  if (fieldCount === 3) {
+    // Split into area code (3), first part (3), last part (4)
+    if (cleaned.length === 10) {
+      return [cleaned.substring(0, 3), cleaned.substring(3, 6), cleaned.substring(6, 10)];
+    }
+    // Fallback: try to split by dashes
+    const parts = String(value).split('-');
+    if (parts.length === 3) {
+      return [parts[0].replace(/\D/g, ''), parts[1].replace(/\D/g, ''), parts[2].replace(/\D/g, '')];
+    }
+    // If format is different, try to parse
+    return [cleaned.substring(0, 3), cleaned.substring(3, 6), cleaned.substring(6, 10)];
+  } else {
+    // 2-field split: area code and number
+    if (cleaned.length === 10) {
+      return [cleaned.substring(0, 3), cleaned.substring(3, 10)];
+    }
+    const parts = String(value).split('-');
+    if (parts.length >= 2) {
+      return [parts[0].replace(/\D/g, ''), parts.slice(1).join('').replace(/\D/g, '')];
+    }
+    return [cleaned.substring(0, 3), cleaned.substring(3)];
+  }
+}
+
+/**
+ * Split date (e.g., "01/15/2025") into month, day, year
+ */
+function splitDate(value) {
+  const parts = String(value).split(/[\/\-]/);
+  if (parts.length === 3) {
+    return [parts[0], parts[1], parts[2]];
+  }
+  // If format is different, try to parse
+  const dateStr = String(value);
+  if (dateStr.length >= 8) {
+    return [dateStr.substring(0, 2), dateStr.substring(2, 4), dateStr.substring(4, 8)];
+  }
+  return ['', '', ''];
+}
+
+/**
+ * Fill a single field or array of fields based on mapping
+ */
+function fillField(field, value, fieldType) {
+  if (fieldType === 'PDFTextField') {
+    field.setText(String(value ?? ''));
+  } else if (fieldType === 'PDFCheckBox') {
+    if (value === true || value === 'true' || value === '1' || value === 'yes') {
+      field.check();
+    } else {
+      field.uncheck();
+    }
+  }
+}
+
+async function fillForm(templatePath, inputPath, outputPath, fieldMapping) {
   const templateResolved = path.resolve(templatePath);
   const inputResolved = path.resolve(inputPath);
 
@@ -73,21 +163,43 @@ async function fillForm(templatePath, inputPath, outputPath) {
   const fields = form.getFields();
   const data = JSON.parse(fs.readFileSync(inputResolved, 'utf8'));
 
-  for (const [key, value] of Object.entries(data)) {
-    const index = parseInt(key, 10);
-    if (Number.isNaN(index) || index < 0 || index >= fields.length) continue;
+  // Fill fields using semantic mapping
+  for (const [semanticName, value] of Object.entries(data)) {
+    const mapping = fieldMapping[semanticName];
+    if (mapping === undefined) continue; // Skip if field doesn't exist in this form
 
-    const field = fields[index];
-    const type = field.constructor.name;
-
-    if (type === 'PDFTextField') {
-      field.setText(String(value ?? ''));
-    } else if (type === 'PDFCheckBox') {
-      if (value === true || value === 'true' || value === '1' || value === 'yes') {
-        field.check();
+    if (Array.isArray(mapping)) {
+      // Handle multi-field mappings (e.g., SSN, phone, dateOfBirth)
+      let parts = [];
+      
+      if (semanticName === 'ssn') {
+        parts = splitSSN(value);
+      } else if (semanticName === 'phone') {
+        parts = splitPhone(value, mapping.length);
+      } else if (semanticName === 'dateOfBirth') {
+        parts = splitDate(value);
       } else {
-        field.uncheck();
+        // Generic split: try to split by common delimiters
+        parts = String(value).split(/[-\s\/]/);
       }
+
+      // Fill each field in the array
+      for (let i = 0; i < mapping.length && i < parts.length; i++) {
+        const index = mapping[i];
+        if (Number.isNaN(index) || index < 0 || index >= fields.length) continue;
+        
+        const field = fields[index];
+        const type = field.constructor.name;
+        fillField(field, parts[i], type);
+      }
+    } else {
+      // Single field mapping
+      const index = mapping;
+      if (Number.isNaN(index) || index < 0 || index >= fields.length) continue;
+      
+      const field = fields[index];
+      const type = field.constructor.name;
+      fillField(field, value, type);
     }
   }
 
@@ -99,16 +211,78 @@ async function fillForm(templatePath, inputPath, outputPath) {
   return outputPath;
 }
 
+function promptFormSelection() {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  return new Promise((resolve) => {
+    console.log('\nWhich claim form do you want to fill?');
+    console.log('1. Shelterpoint');
+    console.log('2. Principal');
+    rl.question('Enter your choice (1 or 2): ', (answer) => {
+      rl.close();
+      const choice = answer.trim();
+      if (choice === '1') {
+        resolve('shelterpoint');
+      } else if (choice === '2') {
+        resolve('principal');
+      } else {
+        console.error('Invalid choice. Please enter 1 or 2.');
+        process.exit(1);
+      }
+    });
+  });
+}
+
+function loadFormConfig(formName) {
+  const config = formConfigs[formName];
+  if (!config) {
+    throw new Error(`Unknown form: ${formName}`);
+  }
+
+  const mappingPath = path.resolve(config.mapping);
+  if (!fs.existsSync(mappingPath)) {
+    throw new Error(`Field mapping not found: ${mappingPath}`);
+  }
+
+  const fieldMapping = JSON.parse(fs.readFileSync(mappingPath, 'utf8'));
+  const templatePath = path.resolve(config.template);
+
+  return {
+    templatePath,
+    fieldMapping,
+    formName: config.name
+  };
+}
+
 async function main() {
-  const templatePath = process.argv[2] || defaultTemplatePath;
+  // Check if form name is provided as command line argument
+  let formName = process.argv[2];
+  
+  // If no argument provided, prompt interactively
+  if (!formName) {
+    formName = await promptFormSelection();
+  } else {
+    formName = formName.toLowerCase();
+    if (formName !== 'shelterpoint' && formName !== 'principal') {
+      console.error('Invalid form name. Use "shelterpoint" or "principal".');
+      process.exit(1);
+    }
+  }
+
+  const config = loadFormConfig(formName);
   const inputPath = process.argv[3] || defaultInputPath;
   const outputDir = path.resolve(defaultOutputDir);
   ensureOutputDir(outputDir);
 
-  const outputFileName = `filled_principal_bond_${Date.now()}.pdf`;
+  // Generate output filename with form name and timestamp to avoid file lock issues
+  const timestamp = Date.now();
+  const outputFileName = `filled_${config.formName}_bonding_${timestamp}.pdf`;
   const outputPath = path.join(outputDir, outputFileName);
 
-  await fillForm(templatePath, inputPath, outputPath);
+  await fillForm(config.templatePath, inputPath, outputPath, config.fieldMapping);
   console.log('Filled PDF written to:', outputPath);
 }
 

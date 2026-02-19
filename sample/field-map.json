@@ -2,733 +2,1015 @@
   {
     "index": 0,
     "type": "PDFTextField",
-    "name": "MemberClaimant Name",
-    "page": 7
+    "name": "Employees full legal name (first, last)",
+    "page": 4
   },
   {
     "index": 1,
     "type": "PDFTextField",
-    "name": "Personal Email Address",
-    "page": 7
+    "name": "Employee SSN or TIN (first 3 digits)",
+    "page": 4
   },
   {
     "index": 2,
     "type": "PDFTextField",
-    "name": "Beneficiary Name",
-    "page": 7
+    "name": "Employee's SSN or TIN cont'd",
+    "page": 4
   },
   {
     "index": 3,
     "type": "PDFTextField",
-    "name": "Date of Birth_2",
-    "page": 7
+    "name": "Employee SSN or TIN (last 4 digits)",
+    "page": 4
   },
   {
     "index": 4,
     "type": "PDFTextField",
-    "name": "py",
-    "page": 8
+    "name": "Phone #",
+    "page": 4
   },
   {
     "index": 5,
     "type": "PDFTextField",
-    "name": "accnt_nmbr",
-    "page": 8
+    "name": "Phone # Cont'd",
+    "page": 4
   },
   {
     "index": 6,
     "type": "PDFTextField",
-    "name": "acnt_nmbr",
-    "page": 8
+    "name": "contact email",
+    "page": 4
   },
   {
     "index": 7,
-    "type": "PDFTextField",
-    "name": "bnk_nm",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Employee's gender",
+    "page": 4
   },
   {
     "index": 8,
-    "type": "PDFTextField",
-    "name": "brnch_offc",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "English",
+    "page": 4
   },
   {
     "index": 9,
-    "type": "PDFTextField",
-    "name": "bnk_phn",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Spanish",
+    "page": 4
   },
   {
     "index": 10,
-    "type": "PDFTextField",
-    "name": "bnk_addrss",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Russian",
+    "page": 4
   },
   {
     "index": 11,
-    "type": "PDFTextField",
-    "name": "cty",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Polish",
+    "page": 4
   },
   {
     "index": 12,
-    "type": "PDFTextField",
-    "name": "stt",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Chinese",
+    "page": 4
   },
   {
     "index": 13,
-    "type": "PDFTextField",
-    "name": "bnk_zp",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Italian",
+    "page": 4
   },
   {
     "index": 14,
-    "type": "PDFTextField",
-    "name": "rtng_and_trnst_nmbr",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Hatian Creole",
+    "page": 4
   },
   {
     "index": 15,
     "type": "PDFCheckBox",
-    "name": "accnt_fr_dpsts",
-    "page": 8
+    "name": "Korean",
+    "page": 4
   },
   {
     "index": 16,
-    "type": "PDFTextField",
-    "name": "py_zp",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Other",
+    "page": 4
   },
   {
     "index": 17,
     "type": "PDFTextField",
-    "name": "py_addss",
-    "page": 8
+    "name": "Other Preferred language",
+    "page": 4
   },
   {
     "index": 18,
-    "type": "PDFTextField",
-    "name": "py_cty",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "PFL reason",
+    "page": 4
   },
   {
     "index": 19,
-    "type": "PDFTextField",
-    "name": "py_stt",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Relationship of Family Member EE is caring for",
+    "page": 4
   },
   {
     "index": 20,
-    "type": "PDFTextField",
-    "name": "py_phn",
-    "page": 8
+    "type": "PDFCheckBox",
+    "name": "Relationship of Family Member EE is caring for#7",
+    "page": 4
   },
   {
     "index": 21,
-    "type": "PDFTextField",
-    "name": "Date of Birth",
-    "page": 7
+    "type": "PDFCheckBox",
+    "name": "Ethnicity-Mexican",
+    "page": 4
   },
   {
     "index": 22,
     "type": "PDFCheckBox",
-    "name": "Check Box1",
-    "page": 1
+    "name": "Ethnicity-Mexican American",
+    "page": 4
   },
   {
     "index": 23,
     "type": "PDFCheckBox",
-    "name": "Check Box2",
-    "page": 1
+    "name": "Ethnicity-Chicano/a",
+    "page": 4
   },
   {
     "index": 24,
     "type": "PDFCheckBox",
-    "name": "Check Box5",
-    "page": 1
+    "name": "Ethnicity- Puerto Rican",
+    "page": 4
   },
   {
     "index": 25,
     "type": "PDFCheckBox",
-    "name": "Check Box6",
-    "page": 1
+    "name": "Ethnicity- Dominican",
+    "page": 4
   },
   {
     "index": 26,
-    "type": "PDFTextField",
-    "name": "emplys_nm",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Ethnicity- Cuban",
+    "page": 4
   },
   {
     "index": 27,
-    "type": "PDFTextField",
-    "name": "id",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Ethnicity- Another Hispanic",
+    "page": 4
   },
   {
     "index": 28,
-    "type": "PDFTextField",
-    "name": "phn_nmbr",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Ethnicity- not of Hispanic origin",
+    "page": 4
   },
   {
     "index": 29,
-    "type": "PDFTextField",
-    "name": "Text18",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Ethnicity- unknown",
+    "page": 4
   },
   {
     "index": 30,
-    "type": "PDFTextField",
-    "name": "empl_addrss",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Am. Indian",
+    "page": 4
   },
   {
     "index": 31,
-    "type": "PDFTextField",
-    "name": "Text30",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Black/Af. Am",
+    "page": 4
   },
   {
     "index": 32,
-    "type": "PDFTextField",
-    "name": "Text31",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Asian Indian",
+    "page": 4
   },
   {
     "index": 33,
-    "type": "PDFTextField",
-    "name": "Text32",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Chinese",
+    "page": 4
   },
   {
     "index": 34,
-    "type": "PDFTextField",
-    "name": "Text22",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Filipino",
+    "page": 4
   },
   {
     "index": 35,
-    "type": "PDFTextField",
-    "name": "Text33",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Japanese",
+    "page": 4
   },
   {
     "index": 36,
-    "type": "PDFTextField",
-    "name": "Text6",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Korean",
+    "page": 4
   },
   {
     "index": 37,
-    "type": "PDFTextField",
-    "name": "Text13",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Vietnamese",
+    "page": 4
   },
   {
     "index": 38,
-    "type": "PDFTextField",
-    "name": "Text9",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Other Asian",
+    "page": 4
   },
   {
     "index": 39,
-    "type": "PDFTextField",
-    "name": "Text7",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-White",
+    "page": 4
   },
   {
     "index": 40,
-    "type": "PDFTextField",
-    "name": "Text11",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Native Hawaiian",
+    "page": 4
   },
   {
     "index": 41,
-    "type": "PDFTextField",
-    "name": "Text8",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race_Guamanian",
+    "page": 4
   },
   {
     "index": 42,
-    "type": "PDFTextField",
-    "name": "Text15",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Samoan",
+    "page": 4
   },
   {
     "index": 43,
-    "type": "PDFTextField",
-    "name": "stt_dsblty_incm_amt_rcvd",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-other Pacific Islander",
+    "page": 4
   },
   {
     "index": 44,
-    "type": "PDFTextField",
-    "name": "pnsn_bnft_amt_rcvd",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "Race-Other",
+    "page": 4
   },
   {
     "index": 45,
     "type": "PDFTextField",
-    "name": "othr_src_amt_rcvd",
-    "page": 2
+    "name": "Claim number",
+    "page": 4
   },
   {
     "index": 46,
     "type": "PDFTextField",
-    "name": "yr_nm",
-    "page": 5
+    "name": "EEs Date of Birth (Month)",
+    "page": 4
   },
   {
     "index": 47,
     "type": "PDFTextField",
-    "name": "wrk_tlphn_nmbr",
-    "page": 5
+    "name": "EEs Date of Birth (Day)",
+    "page": 4
   },
   {
     "index": 48,
     "type": "PDFTextField",
-    "name": "dt_of_brth",
-    "page": 5
+    "name": "EE's Date of Birth (Year)",
+    "page": 4
   },
   {
     "index": 49,
     "type": "PDFCheckBox",
-    "name": "Check Box3",
+    "name": "Continuous Leave",
     "page": 5
   },
   {
     "index": 50,
-    "type": "PDFCheckBox",
-    "name": "Check Box4",
+    "type": "PDFTextField",
+    "name": "Start Month",
     "page": 5
   },
   {
     "index": 51,
     "type": "PDFTextField",
-    "name": "sc_sc#",
+    "name": "Start Day",
     "page": 5
   },
   {
     "index": 52,
     "type": "PDFTextField",
-    "name": "addrss_of_emply",
+    "name": "Start YEAR",
     "page": 5
   },
   {
     "index": 53,
     "type": "PDFTextField",
-    "name": "clllr_tlphn_nmbr",
+    "name": "End month",
     "page": 5
   },
   {
     "index": 54,
     "type": "PDFTextField",
-    "name": "dt_tm_accdnt",
+    "name": "End day",
     "page": 5
   },
   {
     "index": 55,
     "type": "PDFTextField",
-    "name": "dt_y_bcm_dsbld",
+    "name": "End year",
     "page": 5
   },
   {
     "index": 56,
-    "type": "PDFTextField",
-    "name": "yr_eml_addrs",
+    "type": "PDFCheckBox",
+    "name": "Cont. Leave- Dates Estimated",
     "page": 5
   },
   {
     "index": 57,
-    "type": "PDFTextField",
-    "name": "hm_tlphn_nmbr",
+    "type": "PDFCheckBox",
+    "name": "Periodic Leave",
     "page": 5
   },
   {
     "index": 58,
-    "type": "PDFCheckBox",
-    "name": "dd_dsblty_rslt_frm_emplymnt",
+    "type": "PDFTextField",
+    "name": "Identify dates periodic PFL will be taken",
     "page": 5
   },
   {
     "index": 59,
     "type": "PDFCheckBox",
-    "name": "dsblty_d_t",
+    "name": "Periodic Leave-Dates estimated",
     "page": 5
   },
   {
     "index": 60,
     "type": "PDFTextField",
-    "name": "nms_of_dctrs_practtnrs_and_hsotls_hr1",
+    "name": "reason for less than 30 days notice",
     "page": 5
   },
   {
     "index": 61,
     "type": "PDFTextField",
-    "name": "nms_of_dctrs_practtnrs_and_hsotls_hr2",
+    "name": "Employer's Business Name",
     "page": 5
   },
   {
     "index": 62,
     "type": "PDFTextField",
-    "name": "end_date",
+    "name": "hire month",
     "page": 5
   },
   {
     "index": 63,
     "type": "PDFTextField",
-    "name": "Text4",
+    "name": "hire day",
     "page": 5
   },
   {
     "index": 64,
-    "type": "PDFCheckBox",
-    "name": "hv_y_fld_a_wrkrs_cmpnstn_clm335",
+    "type": "PDFTextField",
+    "name": "hire year",
     "page": 5
   },
   {
     "index": 65,
     "type": "PDFTextField",
-    "name": "Text5",
+    "name": "17 Employees work location",
     "page": 5
   },
   {
     "index": 66,
     "type": "PDFTextField",
-    "name": "bnft_amt_pr_mnth1",
+    "name": "City State_Zip Code",
     "page": 5
   },
   {
     "index": 67,
     "type": "PDFTextField",
-    "name": "amt_rcvd4",
-    "page": 5
+    "name": "Area Code",
+    "page": 4
   },
   {
     "index": 68,
-    "type": "PDFCheckBox",
-    "name": "peridodic",
+    "type": "PDFTextField",
+    "name": "Avg. weekly wage (EE)",
     "page": 5
   },
   {
     "index": 69,
     "type": "PDFCheckBox",
-    "name": "continuous",
+    "name": "CCER",
     "page": 5
   },
   {
     "index": 70,
-    "type": "PDFTextField",
-    "name": "emply_state_wrkd_in1",
-    "page": 2
+    "type": "PDFCheckBox",
+    "name": "PFL other ER",
+    "page": 5
   },
   {
     "index": 71,
-    "type": "PDFTextField",
-    "name": "prvd_nm_addrss_phn_nmbr_and_plcy_nmbr_of_at_insrnc_carrr1",
+    "type": "PDFCheckBox",
+    "name": "WC Lost Wages",
     "page": 5
   },
   {
     "index": 72,
-    "type": "PDFCheckBox",
-    "name": "Check Box56",
-    "page": 2
+    "type": "PDFTextField",
+    "name": "EE Signature Date",
+    "page": 5
   },
   {
     "index": 73,
     "type": "PDFCheckBox",
-    "name": "Check Box57",
-    "page": 2
+    "name": "Prefiling Claim",
+    "page": 5
   },
   {
     "index": 74,
-    "type": "PDFCheckBox",
-    "name": "Check Box58",
-    "page": 2
+    "type": "PDFTextField",
+    "name": "Business name",
+    "page": 6
   },
   {
     "index": 75,
-    "type": "PDFCheckBox",
-    "name": "d_y_hv_othr_insrnc_wth_or_cmpny12",
+    "type": "PDFTextField",
+    "name": "Mailing address",
     "page": 6
   },
   {
     "index": 76,
-    "type": "PDFCheckBox",
-    "name": "Check Box48",
-    "page": 5
+    "type": "PDFTextField",
+    "name": "City State_3",
+    "page": 6
   },
   {
     "index": 77,
-    "type": "PDFCheckBox",
-    "name": "Check Box50",
-    "page": 5
+    "type": "PDFTextField",
+    "name": "zip code",
+    "page": 6
   },
   {
     "index": 78,
-    "type": "PDFCheckBox",
-    "name": "Check Box49",
-    "page": 5
+    "type": "PDFTextField",
+    "name": "ER FEIN",
+    "page": 6
   },
   {
     "index": 79,
-    "type": "PDFCheckBox",
-    "name": "Check Box4812",
+    "type": "PDFTextField",
+    "name": "ER FEIN continued",
     "page": 6
   },
   {
     "index": 80,
-    "type": "PDFCheckBox",
-    "name": "Check Box5012",
+    "type": "PDFTextField",
+    "name": "Employers Standard Industrial Classification SIC Code",
     "page": 6
   },
   {
     "index": 81,
-    "type": "PDFCheckBox",
-    "name": "Check Box4912",
+    "type": "PDFTextField",
+    "name": "Employers contact name for questions related to PFL",
     "page": 6
   },
   {
     "index": 82,
-    "type": "PDFCheckBox",
-    "name": "Check Box5612",
-    "page": 6
+    "type": "PDFTextField",
+    "name": "ER Phone #",
+    "page": 5
   },
   {
     "index": 83,
-    "type": "PDFCheckBox",
-    "name": "fam_lv_stmt",
-    "page": 6
+    "type": "PDFTextField",
+    "name": "Er Phone # Cont'd",
+    "page": 5
   },
   {
     "index": 84,
-    "type": "PDFCheckBox",
-    "name": "Check Box5812",
+    "type": "PDFTextField",
+    "name": "Employers contact email address",
     "page": 6
   },
   {
     "index": 85,
-    "type": "PDFCheckBox",
-    "name": "Check Box5712",
+    "type": "PDFTextField",
+    "name": "er hire month",
     "page": 6
   },
   {
     "index": 86,
-    "type": "PDFCheckBox",
-    "name": "chld_ee",
+    "type": "PDFTextField",
+    "name": "er hire day",
     "page": 6
   },
   {
     "index": 87,
     "type": "PDFTextField",
-    "name": "dt_emply_lst_wrkd",
-    "page": 2
+    "name": "er hire year",
+    "page": 6
   },
   {
     "index": 88,
     "type": "PDFTextField",
-    "name": "dt_emply_trmd",
-    "page": 2
+    "name": "Job description",
+    "page": 6
   },
   {
     "index": 89,
     "type": "PDFTextField",
-    "name": "slry_effctv_dt",
-    "page": 2
+    "name": "Occupation Code",
+    "page": 6
   },
   {
     "index": 90,
     "type": "PDFTextField",
-    "name": "date_exp_amounts1",
-    "page": 2
+    "name": "Occupation code 1",
+    "page": 6
   },
   {
     "index": 91,
-    "type": "PDFCheckBox",
-    "name": "Pay_after_last_day_worked",
-    "page": 2
+    "type": "PDFTextField",
+    "name": "Week ending date MMDDYYYY1",
+    "page": 6
   },
   {
     "index": 92,
     "type": "PDFTextField",
-    "name": "date_paid_thru1",
-    "page": 2
+    "name": "Number of days worked1",
+    "page": 6
   },
   {
     "index": 93,
-    "type": "PDFCheckBox",
-    "name": "Pay_after_last_day_worked1",
-    "page": 2
+    "type": "PDFTextField",
+    "name": "Gross amount paid1",
+    "page": 6
   },
   {
     "index": 94,
     "type": "PDFTextField",
-    "name": "slry_prior_dt",
-    "page": 2
+    "name": "Week ending date MMDDYYYY2",
+    "page": 6
   },
   {
     "index": 95,
-    "type": "PDFCheckBox",
-    "name": "Check Box4nonbinary",
-    "page": 5
+    "type": "PDFTextField",
+    "name": "Number of days worked2",
+    "page": 6
   },
   {
     "index": 96,
     "type": "PDFTextField",
-    "name": "Text29",
-    "page": 3
+    "name": "Gross amount paid2",
+    "page": 6
   },
   {
     "index": 97,
     "type": "PDFTextField",
-    "name": "Text24",
-    "page": 3
+    "name": "Week ending date MMDDYYYY3",
+    "page": 6
   },
   {
     "index": 98,
     "type": "PDFTextField",
-    "name": "Text25",
-    "page": 3
+    "name": "Number of days worked3",
+    "page": 6
   },
   {
     "index": 99,
     "type": "PDFTextField",
-    "name": "Text26",
-    "page": 3
+    "name": "Gross amount paid3",
+    "page": 6
   },
   {
     "index": 100,
     "type": "PDFTextField",
-    "name": "Text27",
-    "page": 3
+    "name": "Week ending date MMDDYYYY4",
+    "page": 6
   },
   {
     "index": 101,
     "type": "PDFTextField",
-    "name": "Text28",
-    "page": 3
+    "name": "Number of days worked4",
+    "page": 6
   },
   {
     "index": 102,
     "type": "PDFTextField",
-    "name": "dt_of_emplymnt",
-    "page": 2
+    "name": "Gross amount paid4",
+    "page": 6
   },
   {
     "index": 103,
     "type": "PDFTextField",
-    "name": "emplys_slry",
-    "page": 2
+    "name": "Week ending date MMDDYYYY5",
+    "page": 6
   },
   {
     "index": 104,
     "type": "PDFTextField",
-    "name": "dt_of_QR_Completed",
-    "page": 2
+    "name": "Number of days worked5",
+    "page": 6
   },
   {
     "index": 105,
     "type": "PDFTextField",
-    "name": "Gross_erngs",
-    "page": 2
+    "name": "Gross amount paid5",
+    "page": 6
   },
   {
     "index": 106,
     "type": "PDFTextField",
-    "name": "dt_of_QR_Completed1",
-    "page": 2
+    "name": "Week ending date MMDDYYYY6",
+    "page": 6
   },
   {
     "index": 107,
     "type": "PDFTextField",
-    "name": "Gross_erngs1",
-    "page": 2
+    "name": "Number of days worked6",
+    "page": 6
   },
   {
     "index": 108,
     "type": "PDFTextField",
-    "name": "dt_of_QR_Completed2",
-    "page": 2
+    "name": "Gross amount paid6",
+    "page": 6
   },
   {
     "index": 109,
     "type": "PDFTextField",
-    "name": "Gross_erngs2",
-    "page": 2
+    "name": "Week ending date MMDDYYYY7",
+    "page": 6
   },
   {
     "index": 110,
     "type": "PDFTextField",
-    "name": "dt_of_QR_Completed3",
-    "page": 2
+    "name": "Number of days worked7",
+    "page": 6
   },
   {
     "index": 111,
     "type": "PDFTextField",
-    "name": "Gross_erngs3",
-    "page": 2
+    "name": "Gross amount paid7",
+    "page": 6
   },
   {
     "index": 112,
     "type": "PDFTextField",
-    "name": "dt_of_QR_Completed4",
-    "page": 2
+    "name": "Week ending date MMDDYYYY8",
+    "page": 6
   },
   {
     "index": 113,
     "type": "PDFTextField",
-    "name": "Gross_erngs4",
-    "page": 2
+    "name": "Number of days worked8",
+    "page": 6
   },
   {
     "index": 114,
-    "type": "PDFCheckBox",
-    "name": "ER_reimburse",
-    "page": 3
+    "type": "PDFTextField",
+    "name": "Gross amount paid8",
+    "page": 6
   },
   {
     "index": 115,
     "type": "PDFTextField",
-    "name": "Text23",
-    "page": 3
+    "name": "Gross amount paidRow9",
+    "page": 6
   },
   {
     "index": 116,
-    "type": "PDFTextField",
-    "name": "Text23AP",
-    "page": 3
+    "type": "PDFCheckBox",
+    "name": "Mon",
+    "page": 6
   },
   {
     "index": 117,
-    "type": "PDFTextField",
-    "name": "Text23DBB",
-    "page": 3
+    "type": "PDFCheckBox",
+    "name": "Tue",
+    "page": 6
   },
   {
     "index": 118,
-    "type": "PDFTextField",
-    "name": "Text23DBE",
-    "page": 3
+    "type": "PDFCheckBox",
+    "name": "Wed",
+    "page": 6
   },
   {
     "index": 119,
-    "type": "PDFTextField",
-    "name": "ERPR_title",
-    "page": 4
+    "type": "PDFCheckBox",
+    "name": "Thur",
+    "page": 6
   },
   {
     "index": 120,
-    "type": "PDFTextField",
-    "name": "ERPR_Accounts",
-    "page": 4
+    "type": "PDFCheckBox",
+    "name": "Fri",
+    "page": 6
   },
   {
     "index": 121,
+    "type": "PDFCheckBox",
+    "name": "Sat",
+    "page": 6
+  },
+  {
+    "index": 122,
+    "type": "PDFCheckBox",
+    "name": "Sun",
+    "page": 6
+  },
+  {
+    "index": 123,
+    "type": "PDFCheckBox",
+    "name": "FT PT",
+    "page": 6
+  },
+  {
+    "index": 124,
+    "type": "PDFCheckBox",
+    "name": "wages contd",
+    "page": 6
+  },
+  {
+    "index": 125,
     "type": "PDFTextField",
-    "name": "ERPR_Name",
+    "name": "Pay continued start",
+    "page": 6
+  },
+  {
+    "index": 126,
+    "type": "PDFTextField",
+    "name": "Pay continued thru",
+    "page": 6
+  },
+  {
+    "index": 127,
+    "type": "PDFCheckBox",
+    "name": "ER reim",
+    "page": 6
+  },
+  {
+    "index": 128,
+    "type": "PDFCheckBox",
+    "name": "prior leave",
+    "page": 7
+  },
+  {
+    "index": 129,
+    "type": "PDFTextField",
+    "name": "# weeks DBL",
+    "page": 7
+  },
+  {
+    "index": 130,
+    "type": "PDFTextField",
+    "name": "# days DBL",
+    "page": 7
+  },
+  {
+    "index": 131,
+    "type": "PDFTextField",
+    "name": "Disability Dates in prior 52 weeks",
+    "page": 7
+  },
+  {
+    "index": 132,
+    "type": "PDFTextField",
+    "name": "# weeks PFL",
+    "page": 7
+  },
+  {
+    "index": 133,
+    "type": "PDFTextField",
+    "name": "#days PFL",
+    "page": 7
+  },
+  {
+    "index": 134,
+    "type": "PDFTextField",
+    "name": "PFL Dates in prior 52 weeks",
+    "page": 7
+  },
+  {
+    "index": 135,
+    "type": "PDFCheckBox",
+    "name": "FMLA",
+    "page": 7
+  },
+  {
+    "index": 136,
+    "type": "PDFTextField",
+    "name": "Policy #",
+    "page": 7
+  },
+  {
+    "index": 137,
+    "type": "PDFCheckBox",
+    "name": "Affirmation",
+    "page": 7
+  },
+  {
+    "index": 138,
+    "type": "PDFTextField",
+    "name": "ER sign month",
+    "page": 7
+  },
+  {
+    "index": 139,
+    "type": "PDFTextField",
+    "name": "Er sign day",
+    "page": 7
+  },
+  {
+    "index": 140,
+    "type": "PDFTextField",
+    "name": "ER sign year",
+    "page": 7
+  },
+  {
+    "index": 141,
+    "type": "PDFTextField",
+    "name": "ER Title",
+    "page": 7
+  },
+  {
+    "index": 142,
+    "type": "PDFTextField",
+    "name": "2 Other last names if any under which employee has worked",
     "page": 4
+  },
+  {
+    "index": 143,
+    "type": "PDFTextField",
+    "name": "Street address including apartment #",
+    "page": 4
+  },
+  {
+    "index": 144,
+    "type": "PDFTextField",
+    "name": "City State",
+    "page": 4
+  },
+  {
+    "index": 145,
+    "type": "PDFTextField",
+    "name": "Zip code",
+    "page": 4
+  },
+  {
+    "index": 146,
+    "type": "PDFTextField",
+    "name": "Country if not USA",
+    "page": 4
+  },
+  {
+    "index": 147,
+    "type": "PDFTextField",
+    "name": "Child's Birth Month",
+    "page": 9
+  },
+  {
+    "index": 148,
+    "type": "PDFTextField",
+    "name": "Child's birth Day",
+    "page": 9
+  },
+  {
+    "index": 149,
+    "type": "PDFTextField",
+    "name": "Child's birth year",
+    "page": 9
+  },
+  {
+    "index": 150,
+    "type": "PDFCheckBox",
+    "name": "Child's gender",
+    "page": 9
+  },
+  {
+    "index": 151,
+    "type": "PDFCheckBox",
+    "name": "Lives with child",
+    "page": 9
+  },
+  {
+    "index": 152,
+    "type": "PDFCheckBox",
+    "name": "child is ees",
+    "page": 9
+  },
+  {
+    "index": 153,
+    "type": "PDFTextField",
+    "name": "Adopt Month",
+    "page": 9
+  },
+  {
+    "index": 154,
+    "type": "PDFTextField",
+    "name": "Adopt Day",
+    "page": 9
+  },
+  {
+    "index": 155,
+    "type": "PDFTextField",
+    "name": "Adopt Year",
+    "page": 9
+  },
+  {
+    "index": 156,
+    "type": "PDFTextField",
+    "name": "EE Sign Month",
+    "page": 10
+  },
+  {
+    "index": 157,
+    "type": "PDFTextField",
+    "name": "EE Sign day",
+    "page": 10
+  },
+  {
+    "index": 158,
+    "type": "PDFTextField",
+    "name": "EE sign year",
+    "page": 10
+  },
+  {
+    "index": 159,
+    "type": "PDFCheckBox",
+    "name": "EOBs",
+    "page": 11
+  },
+  {
+    "index": 160,
+    "type": "PDFTextField",
+    "name": "Date mmddyyyy",
+    "page": 11
+  },
+  {
+    "index": 161,
+    "type": "PDFTextField",
+    "name": "Area Code2",
+    "page": 5
+  },
+  {
+    "index": 162,
+    "type": "PDFCheckBox",
+    "name": "Payment Preference",
+    "page": 5
+  },
+  {
+    "index": 163,
+    "type": "PDFTextField",
+    "name": "Area Code3",
+    "page": 6
+  },
+  {
+    "index": 164,
+    "type": "PDFTextField",
+    "name": "ER Phone #3",
+    "page": 6
+  },
+  {
+    "index": 165,
+    "type": "PDFTextField",
+    "name": "Er Phone # Cont'd3",
+    "page": 6
+  },
+  {
+    "index": 166,
+    "type": "PDFCheckBox",
+    "name": "Account Type",
+    "page": 11
+  },
+  {
+    "index": 167,
+    "type": "PDFCheckBox",
+    "name": "Other Parent",
+    "page": 9
+  },
+  {
+    "index": 168,
+    "type": "PDFCheckBox",
+    "name": "Evidence of Relationship",
+    "page": 9
   }
 ]

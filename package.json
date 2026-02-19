@@ -1,0 +1,17 @@
+{
+  "name": "pdfreader",
+  "version": "1.0.0",
+  "description": "Fill PDF forms from a template. For encrypted templates, qpdf must be installed (e.g. brew install qpdf).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fill": "node src/fillForm.js",
+    "list-fields": "node src/listFields.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}

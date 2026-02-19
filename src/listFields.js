@@ -87,7 +87,7 @@ async function listFields(templatePath = defaultTemplatePath) {
       byPage[pageNum].push(index);
     }
     const pageStr = pageNum != null ? ` (page ${pageNum})` : ' (page ?)';
-    console.log(`[${index}] ${type}${pageStr}`);
+    console.log(`[${index}] ${type}${pageStr} - ${name || '(unnamed)'}`);
   });
 
   console.log('\n--- By page (page N: field indices) ---');
@@ -108,7 +108,7 @@ async function listFields(templatePath = defaultTemplatePath) {
   fs.writeFileSync(
     fieldMapPath,
     JSON.stringify(
-      fieldList.map(({ index, type, page }) => ({ index, type, page })),
+      fieldList.map(({ index, type, name, page }) => ({ index, type, name, page })),
       null,
       2
     )

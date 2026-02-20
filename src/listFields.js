@@ -7,7 +7,7 @@ const { PDFDocument } = require('pdf-lib');
 const defaultTemplatePath = path.join(
   __dirname,
   '..',
-  'sample',
+  'templates',
   'principal_bond_with_child_claim_form.pdf'
 );
 

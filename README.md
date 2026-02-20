@@ -20,9 +20,9 @@ Fill PDF forms from a template using JSON input.
 ## Usage
 
 ```bash
-npm run fill                    # use default template and sample/data.json
+npm run fill                    # use default template and templates/unified-data.json
 node src/fillForm.js [template] [input.json]   # custom paths
 npm run list-fields             # list form field indices and types
 ```
 
-Put your template PDF in `sample/` and your field values in `sample/data.json` (keys = field indices; see `sample/field-map.json`). Filled PDFs are written to `output/`.
+Put your template PDF in `templates/` and your field values in `templates/unified-data.json` (keys = semantic field names; see `field-maps/` for mappings). Filled PDFs are written to `output/`.

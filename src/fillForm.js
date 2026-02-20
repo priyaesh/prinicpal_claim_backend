@@ -5,18 +5,18 @@ const readline = require('readline');
 const { spawnSync } = require('child_process');
 const { PDFDocument } = require('pdf-lib');
 
-const defaultInputPath = path.join(__dirname, '..', 'sample', 'data.json');
+const defaultInputPath = path.join(__dirname, '..', 'templates', 'unified-data.json');
 const defaultOutputDir = path.join(__dirname, '..', 'output');
 
 // Form configurations
 const formConfigs = {
   shelterpoint: {
-    template: path.join(__dirname, '..', 'sample', 'claim_form_shelterpoint_bonding.pdf'),
+    template: path.join(__dirname, '..', 'templates', 'claim_form_shelterpoint_bonding.pdf'),
     mapping: path.join(__dirname, '..', 'field-maps', 'shelterpoint.json'),
     name: 'shelterpoint'
   },
   principal: {
-    template: path.join(__dirname, '..', 'sample', 'principal_bond_with_child_claim_form.pdf'),
+    template: path.join(__dirname, '..', 'templates', 'principal_bond_with_child_claim_form.pdf'),
     mapping: path.join(__dirname, '..', 'field-maps', 'principal.json'),
     name: 'principal'
   }

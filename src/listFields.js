@@ -104,7 +104,17 @@ async function listFields(templatePath = defaultTemplatePath) {
     console.log(`${type}: ${names.length}`);
   });
 
-  const fieldMapPath = path.join(path.dirname(resolved), 'field-map.json');
+  // Determine form name from template filename
+  const templateBasename = path.basename(resolved, path.extname(resolved));
+  let formName = 'unknown';
+  
+  if (templateBasename.includes('shelterpoint') || templateBasename.includes('claim_form_shelterpoint')) {
+    formName = 'shelterpoint';
+  } else if (templateBasename.includes('principal') || templateBasename.includes('principal_bond')) {
+    formName = 'principal';
+  }
+  
+  const fieldMapPath = path.join(path.dirname(resolved), `field-map-${formName}.json`);
   fs.writeFileSync(
     fieldMapPath,
     JSON.stringify(

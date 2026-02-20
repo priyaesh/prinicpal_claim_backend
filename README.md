@@ -25,4 +25,4 @@ node src/fillForm.js [template] [input.json]   # custom paths
 npm run list-fields             # list form field indices and types
 ```
 
-Put your template PDF in `templates/` and your field values in `templates/unified-data.json` (keys = semantic field names; see `field-maps/` for mappings). Filled PDFs are written to `output/`.
+Put your template PDF in `templates/` and your field values in `templates/unified-data.json` (keys = semantic field names; see `fill-maps/` for mappings). Filled PDFs are written to `output/`.

@@ -12,12 +12,12 @@ const defaultOutputDir = path.join(__dirname, '..', 'output');
 const formConfigs = {
   shelterpoint: {
     template: path.join(__dirname, '..', 'templates', 'claim_form_shelterpoint_bonding.pdf'),
-    mapping: path.join(__dirname, '..', 'field-maps', 'shelterpoint.json'),
+    mapping: path.join(__dirname, '..', 'fill-maps', 'fill-map-shelterpoint.json'),
     name: 'shelterpoint'
   },
   principal: {
     template: path.join(__dirname, '..', 'templates', 'principal_bond_with_child_claim_form.pdf'),
-    mapping: path.join(__dirname, '..', 'field-maps', 'principal.json'),
+    mapping: path.join(__dirname, '..', 'fill-maps', 'fill-map-principal.json'),
     name: 'principal'
   }
 };

@@ -28,6 +28,30 @@ function ensureOutputDir(dir) {
   }
 }
 
+/**
+ * Clean up old PDF files in a directory, keeping only the most recent ones
+ * @param {string} dir - Directory path to clean up
+ * @param {number} keepCount - Number of most recent files to keep (default: 3)
+ */
+function cleanupOldFiles(dir, keepCount = 3) {
+  if (!fs.existsSync(dir)) return;
+  
+  const files = fs.readdirSync(dir)
+    .filter(f => f.endsWith('.pdf'))
+    .map(f => ({
+      name: f,
+      path: path.join(dir, f),
+      mtime: fs.statSync(path.join(dir, f)).mtime
+    }))
+    .sort((a, b) => b.mtime - a.mtime); // newest first
+  
+  // Delete files beyond keepCount
+  files.slice(keepCount).forEach(file => {
+    fs.unlinkSync(file.path);
+    console.log(`Deleted old file: ${file.name}`);
+  });
+}
+
 const QPDF_ERR_MSG =
   'Template appears encrypted. Install qpdf and ensure it is on PATH (e.g. brew install qpdf), or use a decrypted template.';
 
@@ -274,7 +298,7 @@ async function main() {
 
   const config = loadFormConfig(formName);
   const inputPath = process.argv[3] || defaultInputPath;
-  const outputDir = path.resolve(defaultOutputDir);
+  const outputDir = path.join(path.resolve(defaultOutputDir), config.formName);
   ensureOutputDir(outputDir);
 
   // Generate output filename with form name and timestamp to avoid file lock issues
@@ -284,6 +308,9 @@ async function main() {
 
   await fillForm(config.templatePath, inputPath, outputPath, config.fieldMapping);
   console.log('Filled PDF written to:', outputPath);
+  
+  // Clean up old files, keeping only the 3 most recent
+  cleanupOldFiles(outputDir, 3);
 }
 
 main().catch((err) => {

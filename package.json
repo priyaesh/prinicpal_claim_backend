@@ -4,7 +4,11 @@
   "description": "Fill PDF forms from a template. For encrypted templates, qpdf must be installed (e.g. brew install qpdf).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test tests/**/*.test.js",
+    "test:unit": "node --test tests/unit/**/*.test.js",
+    "test:validation": "node --test tests/validation/**/*.test.js",
+    "test:integration": "node --test tests/integration/**/*.test.js",
+    "test:e2e": "node --test tests/e2e/**/*.test.js",
     "fill": "node src/fillForm.js",
     "list-fields": "node src/listFields.js"
   },

@@ -1,6 +1,9 @@
 # Output files
 output/
 
+# Test output
+tests/output/
+
 # Dependencies
 node_modules/
 

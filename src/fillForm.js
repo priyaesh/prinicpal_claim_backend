@@ -313,7 +313,21 @@ async function main() {
   cleanupOldFiles(outputDir, 3);
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Export functions for testing
+module.exports = {
+  splitSSN,
+  splitPhone,
+  splitDate,
+  fillField,
+  fillForm,
+  loadFormConfig,
+  formConfigs
+};
+
+// Only run main if this file is executed directly
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

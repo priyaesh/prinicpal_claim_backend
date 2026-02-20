@@ -47,8 +47,12 @@ function getPageNumberForField(form, pdfDoc, field) {
 async function listFields(templatePath = defaultTemplatePath) {
   const resolved = path.resolve(templatePath);
   if (!fs.existsSync(resolved)) {
-    console.error('Template not found:', resolved);
-    process.exit(1);
+    const error = new Error('Template not found: ' + resolved);
+    if (require.main === module) {
+      console.error('Template not found:', resolved);
+      process.exit(1);
+    }
+    throw error;
   }
 
   let pdfBytes = fs.readFileSync(resolved);
@@ -126,8 +130,14 @@ async function listFields(templatePath = defaultTemplatePath) {
   console.log('\nWrote index map to', fieldMapPath);
 }
 
-const templatePath = process.argv[2] || defaultTemplatePath;
-listFields(templatePath).catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Export for testing
+module.exports = { listFields, getPageNumberForField };
+
+// Only run if executed directly
+if (require.main === module) {
+  const templatePath = process.argv[2] || defaultTemplatePath;
+  listFields(templatePath).catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

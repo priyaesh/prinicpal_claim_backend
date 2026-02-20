@@ -1,0 +1,15 @@
+{
+  "employeeName": "Test Employee",
+  "employeeId": "TEST123",
+  "phone": "555-123-4567",
+  "address": "123 Test Street",
+  "city": "Test City",
+  "dateOfBirth": "01/01/1990",
+  "state": "NY",
+  "zipCode": "10001",
+  "ssn": "123-45-6789",
+  "jobTitle": "Test Engineer",
+  "checkbox1": true,
+  "checkbox2": false,
+  "checkbox3": true
+}

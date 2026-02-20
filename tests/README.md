@@ -2,7 +2,7 @@
 
 ## Overview
 
-This test suite verifies all functionality of the PDF form filler, including utility functions, JSON validation, field listing, and PDF form filling for both principal and shelterpoint forms.
+This test suite verifies all functionality of ClaimBuilder, including utility functions, JSON validation, field listing, and PDF form filling for both principal and shelterpoint forms.
 
 ## Test Structure
 

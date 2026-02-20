@@ -1,6 +1,6 @@
-# PDF Reader / Form Filler
+# ClaimBuilder
 
-Fill PDF forms from a template using JSON input.
+Fill PDF claim forms from templates using semantic field mappings and JSON input.
 
 ## Requirements
 

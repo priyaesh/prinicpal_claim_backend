@@ -1,7 +1,7 @@
 {
-  "name": "pdfreader",
+  "name": "claimbuilder",
   "version": "1.0.0",
-  "description": "Fill PDF forms from a template. For encrypted templates, qpdf must be installed (e.g. brew install qpdf).",
+  "description": "ClaimBuilder - Fill PDF claim forms from templates using semantic field mappings. For encrypted templates, qpdf must be installed (e.g. brew install qpdf).",
   "main": "index.js",
   "scripts": {
     "test": "node --test tests/**/*.test.js",

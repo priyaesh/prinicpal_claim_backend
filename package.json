@@ -1,21 +1,20 @@
 {
-  "name": "claimbuilder",
+  "name": "pdfreader",
   "version": "1.0.0",
-  "description": "ClaimBuilder - Fill PDF claim forms from templates using semantic field mappings. For encrypted templates, qpdf must be installed (e.g. brew install qpdf).",
-  "main": "index.js",
+  "description": "Claim Field Mapping and Claim Generator services. See claim-field-mapping-service/ and claim-generator-service/.",
+  "private": true,
   "scripts": {
-    "test": "node --test tests/**/*.test.js",
-    "test:unit": "node --test tests/unit/**/*.test.js",
-    "test:validation": "node --test tests/validation/**/*.test.js",
-    "test:integration": "node --test tests/integration/**/*.test.js",
-    "test:e2e": "node --test tests/e2e/**/*.test.js",
-    "fill": "node src/fillForm.js",
-    "list-fields": "node src/listFields.js"
+    "test": "npm test --workspaces",
+    "test:mapping": "npm test -w claim-field-mapping-service",
+    "test:generator": "npm test -w claim-generator-service",
+    "dev:ui": "cd claim-generator-ui && npm run dev"
   },
+  "workspaces": [
+    "claim-field-mapping-service",
+    "claim-generator-service",
+    "claim-generator-ui"
+  ],
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "pdf-lib": "^1.17.1"
-  }
+  "license": "ISC"
 }

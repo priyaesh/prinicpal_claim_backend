@@ -1,0 +1,20 @@
+{
+  "name": "claim-generator-service",
+  "version": "1.0.0",
+  "description": "Fills PDF claim forms from unified-data JSON using a template field map (semantic→index). Accepts the template field map JSON generated or maintained for each form.",
+  "main": "src/fillForm.js",
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "test:unit": "node --test tests/unit/**/*.test.js",
+    "test:integration": "node --test tests/integration/**/*.test.js",
+    "test:validation": "node --test tests/validation/**/*.test.js",
+    "test:e2e": "node --test tests/e2e/**/*.test.js",
+    "fill": "node src/fillForm.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pdf-lib": "^1.17.1"
+  }
+}

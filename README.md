@@ -1,28 +1,38 @@
-# ClaimBuilder
+# PDFReader / Claim Services
 
-Fill PDF claim forms from templates using semantic field mappings and JSON input.
+This repo is split into two modular Node services:
+
+## 1. Claim Field Mapping Service (`claim-field-mapping-service/`)
+
+- **Role:** Lists PDF form fields and outputs a **field-map** catalog (JSON array of `{ index, type, name, page }` per field).
+- **Contains:** Templates (PDFs + field-map JSONs), `listFields.js`, and associated tests.
+- **Output:** Field-map JSON files (e.g. `field-map-principal.json`, `field-map-shelterpoint.json`) written next to each template. This catalog is used to build or maintain the semantic→index mapping consumed by the Claim Generator.
+
+See [claim-field-mapping-service/README.md](claim-field-mapping-service/README.md) for usage and tests.
+
+## 2. Claim Generator Service (`claim-generator-service/`)
+
+- **Role:** Accepts the **template field map** JSON (semantic→field index mapping) and uses it to fill a PDF from unified-data.
+- **Contains:** `fillForm.js`, `templates/unified-data.json`, fill-maps (template field map JSONs), and associated tests.
+- **Input:** Template PDF path, template field map (path or object), and claim data JSON (e.g. `unified-data.json`). **Output:** Filled PDF.
+
+The template field map is the semantic→index mapping (fill-map). It can be produced or maintained using the field catalog from the Claim Field Mapping service.
+
+See [claim-generator-service/README.md](claim-generator-service/README.md) for usage and tests.
 
 ## Requirements
 
 - Node.js
-- **Encrypted templates:** [qpdf](https://qpdf.sourceforge.io/) must be installed and on your PATH.
-  - **macOS:** `brew install qpdf`
-  - **Linux:** `apt install qpdf` or `yum install qpdf`
-  - **Windows:** 
-    1. Download qpdf from [https://qpdf.sourceforge.io/](https://qpdf.sourceforge.io/)
-    2. Extract the zip file
-    3. Add the `bin` folder to your system PATH, or place `qpdf.exe` in a folder already on your PATH
-    4. Alternatively, use [Scoop](https://scoop.sh/): `scoop install qpdf`
-    5. Or use [Chocolatey](https://chocolatey.org/): `choco install qpdf`
-  
-  **Alternative:** If you cannot install qpdf, use a decrypted PDF template instead.
+- **Encrypted PDFs:** [qpdf](https://qpdf.sourceforge.io/) on PATH (e.g. `brew install qpdf` on macOS).
 
-## Usage
+## Quick start
 
 ```bash
-npm run fill                    # use default template and templates/unified-data.json
-node src/fillForm.js [template] [input.json]   # custom paths
-npm run list-fields             # list form field indices and types
+# Claim Field Mapping: list fields for a template
+cd claim-field-mapping-service && npm install && npm run list-fields [templatePath]
+
+# Claim Generator: fill a form (principal or shelterpoint)
+cd claim-generator-service && npm install && npm run fill [formName] [inputJsonPath]
 ```
 
-Put your template PDF in `templates/` and your field values in `templates/unified-data.json` (keys = semantic field names; see `fill-maps/` for mappings). Filled PDFs are written to `output/`.
+Place PDF templates in the respective service’s `templates/` directory as needed.
